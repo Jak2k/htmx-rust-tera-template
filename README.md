@@ -1,0 +1,1 @@
+# htmx-rust-tera-template
