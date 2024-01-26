@@ -1,0 +1,13 @@
+<div id="counter-{{ id }}" class="counter" hx-target="#counter-{{ id }}" hx-swap="outerHTML">
+    {% if count is defined %}
+    {% else %}
+    {% set count = counter[id] %}
+    {% endif %}
+    <button hx-get="/counter/{{ id }}/decrement" class="counter-increment">-</button>
+    <p>
+        <span>Count: </span>
+        <span class="counter-count">{{ count }}</span>
+    </p>
+
+    <button hx-get="/counter/{{ id }}/increment" class="counter-decrement">+</button>
+</div>

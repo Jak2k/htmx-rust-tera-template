@@ -6,4 +6,14 @@ Index
 
 {% block content %}
 <h1>Index</h1>
+<h2>Counter</h2>
+
+<div class="counters">
+    {% set id='c1' %}
+    {% include 'counter.html' %}
+
+    {% set id='c2' %}
+    {% include 'counter.html' %}
+</div>
+
 {% endblock %}
