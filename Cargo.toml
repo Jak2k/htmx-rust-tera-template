@@ -1,0 +1,30 @@
+[package]
+name = "htmx-rust-tera-template"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+color-eyre = "0.6.2"
+tera = "1.19.1"
+actix-web = "4.4.1"
+uuid = { version = "1.7.0", features = ["v4"] }
+lazy_static = "1.4.0"
+actix-files = "0.6.5"
+
+[lints.rust]
+unsafe_code = "forbid"
+
+[lints.clippy]
+enum_glob_use = "deny"
+pedantic = "deny"
+nursery = "deny"
+unwrap_used = "deny"
+
+[profile.release]
+opt-level = 'z'   # Optimize for size.
+lto = true        # Enable Link Time Optimisation
+codegen-units = 1 # Reduced to increase optimisations.
+panic = 'abort'   # Abort on panic
+strip = "symbols" # Strip symbols from binary
