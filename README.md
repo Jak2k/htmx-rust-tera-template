@@ -6,8 +6,15 @@ A template for a htmx  and rust powered web application using the tera template 
 
 1. Click the "Use this template" button on the github page to create a new repository based on this template.
 2. Clone your new repository.
+
+### Option A: Do the tour
+
 3. Install the [codetour extension](https://marketplace.visualstudio.com/items?itemName=vsls-contrib.codetour) in vscode.
-3. Run `cargo run` to start the server (or 'bacon run' if you have [bacon](https://crates.io/crates/bacon) installed).
+4. Open the repository in vscode and start the tour by clicking the butto in codetour's notification or by pressing `ctrl+shift+p` and typing `CodeTour: Start Tour`.
+
+### Option B: Just run it
+
+3. Run `cargo run` to start the server (or `bacon run` if you have [bacon](https://crates.io/crates/bacon) installed).
 4. Open http://localhost:8080 in your browser.
 
 ## Libraries in this template
