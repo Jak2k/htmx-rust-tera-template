@@ -1,0 +1,273 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Introduction to the template",
+  "steps": [
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 99,
+          "character": 5
+        },
+        "end": {
+          "line": 99,
+          "character": 25
+        }
+      },
+      "description": "Create a new server"
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 102,
+          "character": 13
+        },
+        "end": {
+          "line": 104,
+          "character": 16
+        }
+      },
+      "description": "Add app data. We will have a look at it later."
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 105,
+          "character": 13
+        },
+        "end": {
+          "line": 108,
+          "character": 38
+        }
+      },
+      "description": "Register the routes"
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 109,
+          "character": 13
+        },
+        "end": {
+          "line": 110,
+          "character": 89
+        }
+      },
+      "description": "Serve static files"
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 112,
+          "character": 5
+        },
+        "end": {
+          "line": 114,
+          "character": 13
+        }
+      },
+      "description": "Start the server on port 8080"
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 20,
+          "character": 1
+        },
+        "end": {
+          "line": 23,
+          "character": 2
+        }
+      },
+      "description": "## The App's State\n\n- `#[derive(Serialize, Deserialize)]` - makes it serializable for the template\n- `counter: Mutex<HashMap<String, i32>>`- a modifiable map of counters"
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 26,
+          "character": 5
+        },
+        "end": {
+          "line": 35,
+          "character": 6
+        }
+      },
+      "description": "## Changers to the state\n\n- Lock the resource.\n- Find the counter.\n  - Modify it.\n- When not found, create it."
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 49,
+          "character": 1
+        },
+        "end": {
+          "line": 57,
+          "character": 2
+        }
+      },
+      "description": "## The Index-Route\n\n- A new context for the template is created.\n- The counters are inserted into the context.\n- The template `index.html` get's rendered with the context.\n- The rendered html gets send to the client."
+    },
+    {
+      "file": "src/templates/index.html",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 1,
+          "character": 26
+        }
+      },
+      "description": "The `index.html`-template extends the `base.html`-template, which contains things that are on every page."
+    },
+    {
+      "file": "src/templates/index.html",
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 1
+        },
+        "end": {
+          "line": 5,
+          "character": 15
+        }
+      },
+      "description": "The page's title gets set."
+    },
+    {
+      "file": "src/templates/index.html",
+      "selection": {
+        "start": {
+          "line": 12,
+          "character": 5
+        },
+        "end": {
+          "line": 13,
+          "character": 33
+        }
+      },
+      "description": "## Insert a counter in the page\n\n- Set the counter's id. Think of it as a prop (like in React) or a parameter.\n- A include the `counter.html`-template. We will have a look at it later."
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 59,
+          "character": 1
+        },
+        "end": {
+          "line": 59,
+          "character": 33
+        }
+      },
+      "description": "This is, where it gets interesting.\n\nIn that route, an action (`action`) gets executed for a counter (`id`)."
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 68,
+          "character": 4
+        },
+        "end": {
+          "line": 78,
+          "character": 6
+        }
+      },
+      "description": "When the action is `increment`, the correct action get's fired on the state. The same happends for `decrement`. If the action is not valid, a bad request is returned."
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 80,
+          "character": 5
+        },
+        "end": {
+          "line": 83,
+          "character": 27
+        }
+      },
+      "description": "The value of the counter and it's id get inserted into the context."
+    },
+    {
+      "file": "src/main.rs",
+      "selection": {
+        "start": {
+          "line": 85,
+          "character": 5
+        },
+        "end": {
+          "line": 87,
+          "character": 49
+        }
+      },
+      "description": "And the `counter.html` gets rendered and responded to the user."
+    },
+    {
+      "file": "src/templates/counter.html",
+      "selection": {
+        "start": {
+          "line": 1,
+          "character": 1
+        },
+        "end": {
+          "line": 1,
+          "character": 94
+        }
+      },
+      "description": "## The wrapper\n\nThe counter is in a div. It can be identified by its unique id.\n\n`hx-target` and `hx-swap=\"outerHTML\"` tell htmx to replace this whole div, when an action is done inside the counter."
+    },
+    {
+      "file": "src/templates/counter.html",
+      "selection": {
+        "start": {
+          "line": 2,
+          "character": 5
+        },
+        "end": {
+          "line": 5,
+          "character": 16
+        }
+      },
+      "description": "When rendered by the `/counter/{id}/{action}`-route, count is already set, but when included in the `index.html`-template it is not. Therefore, if undefined, it gets set using it's `id`."
+    },
+    {
+      "file": "src/templates/counter.html",
+      "selection": {
+        "start": {
+          "line": 6,
+          "character": 5
+        },
+        "end": {
+          "line": 6,
+          "character": 86
+        }
+      },
+      "description": "When clicked at the decrement-button, a GET is send to `/counter/{id}/decrement`. Then, the whole counter gets swapped with the response."
+    },
+    {
+      "file": "README.md",
+      "selection": {
+        "start": {
+          "line": 3,
+          "character": 1
+        },
+        "end": {
+          "line": 3,
+          "character": 88
+        }
+      },
+      "description": "Have fun!"
+    }
+  ],
+  "ref": "73125f5347006a41ff44d7fd54cf89135a10be25"
+}
