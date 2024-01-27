@@ -70,7 +70,7 @@
           "character": 13
         }
       },
-      "description": "Start the server on port 8080"
+      "description": "Start the server on port 8080\n\n>> cargo run\n\n[Open in Browser](https://localhost:8080/)"
     },
     {
       "file": "src/main.rs",
@@ -269,5 +269,5 @@
       "description": "Have fun!"
     }
   ],
-  "ref": "a7bc19c4660c91c5ae3994b6957b01c1aeee9b01"
+  "isPrimary": true
 }
